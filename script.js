@@ -8,6 +8,10 @@
 // Sidebar Toggle
 $(document).ready(function(){
 
+    if (!window.localStorage) {
+        alert("Sorry, your browser doesn't support localStorage.");
+    }
+
     // Retrieve Elements
     const content = $('#content');
     const sidebar = $('#sidebar');
