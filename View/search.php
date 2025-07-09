@@ -1,9 +1,3 @@
-<!--
-  Core Framework - View File
-
-  @license    MIT (https://mit-license.org/)
-  @author     Louis Ouellet <louis@laswitchtech.com>
--->
 <div class="col-12" id="layout">
     <div class="row row-cols-1 g-3" id="results">
         <!-- Results will be injected here -->
@@ -12,7 +6,7 @@
 <script>
     $(document).ready(function(){
         $.ajax({
-            url: '/endpoint.php/search/query?query=<?= $this->Request->getParams('GET', 'query') ?>',
+            url: '/api/search/query?query=<?= $this->Request->getParams('GET', 'query') ?>',
             type: 'GET',dataType: 'json',
             error: function(xhr, status, error) {
                 let color = 'info', icon = 'question-circle', title = builder.Locale.get(xhr.statusText), content = builder.Locale.get(xhr.responseText);

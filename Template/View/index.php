@@ -1,9 +1,3 @@
-<!--
-  Core Framework - Template File
-
-  @license    MIT (https://mit-license.org/)
-  @author     Louis Ouellet <louis@laswitchtech.com>
--->
 <?php if(!$this->Config->get('application','maintenance') || $this->Auth->isAuthorized('Administrator',1)): ?>
     <!doctype html>
     <html lang="en" class="h-100 w-100">
