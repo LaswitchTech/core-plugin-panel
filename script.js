@@ -1,10 +1,3 @@
-//
-//   Core Framework - Script file
-//
-//   @license    MIT (https://mit-license.org/)
-//   @author     Louis Ouellet <louis@laswitchtech.com>
-//
-
 // Sidebar Toggle
 $(document).ready(function(){
 
@@ -57,7 +50,7 @@ $(document).ready(function(){
 
     $('#footerCredit').click(function(){
         $.ajax({
-            url: '/endpoint.php/core/info',
+            url: '/api/core/info',
             type: 'GET',dataType: 'json',
             success: function(response) {
                 console.log(response)
@@ -378,26 +371,26 @@ $(document).ready(function(){
 // Set Locale's callback
 builder.Locale._callback = function(key, locale){
     $.ajax({
-        url: '/endpoint.php/locale/get?locale='+locale+'&key=' + key,
+        url: '/api/locale/get?locale='+locale+'&key=' + key,
         type: 'GET',dataType: 'json'
     });
 }
 
 // Retrieve the locales
 $.ajax({
-    url: '/endpoint.php/locale/translations',
+    url: '/api/locale/translations',
     type: 'GET',dataType: 'json',
     success: function(response){
         builder.Locale.save('en-ca', response);
     },
 });
 $.ajax({
-    url: '/endpoint.php/locale/current',
+    url: '/api/locale/current',
     type: 'GET',dataType: 'json',
     success: function(response){
         var locale = response;
         $.ajax({
-            url: '/endpoint.php/locale/translations?locale=' + locale,
+            url: '/api/locale/translations?locale=' + locale,
             type: 'GET',dataType: 'json',
             success: function(response){
                 builder.Locale.save(locale, response);
@@ -408,7 +401,7 @@ $.ajax({
 
 // Retrieve the libraries
 $.ajax({
-    url: '/endpoint.php/locale/locales',
+    url: '/api/locale/locales',
     type: 'GET',dataType: 'json',
     success: function(response){
         var locales = [];
@@ -419,7 +412,7 @@ $.ajax({
     },
 });
 $.ajax({
-    url: '/endpoint.php/library/fetch',
+    url: '/api/library/fetch',
     type: 'GET',dataType: 'json',
     success: function(response){
         for(const [library, records] of Object.entries(response.options)){
