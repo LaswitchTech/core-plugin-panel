@@ -25,10 +25,6 @@
             <!-- ======= Load Plugin CSS ======= -->
             <?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'style.php'; ?>
 
-            <!-- ======= JS Constants ======= -->
-            <?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'constant.php'; ?>
-            <!-- ======= End JS Constants ======= -->
-
             <!-- ======= Load Global JS ======= -->
             <?= $this->Builder->js(); ?>
         </head>
